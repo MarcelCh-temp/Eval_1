@@ -3,6 +3,7 @@ package com.chamblas.bastian.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,7 +31,7 @@ public class EventoController {
         return eventoService.getEventos();
     }
     @PostMapping
-    public Evento agregarEvento(@RequestBody Evento evento) {
+    public Evento agregarEvento (@Validated @RequestBody Evento evento) {
         return eventoService.saveEvento(evento);
     }
 
@@ -40,7 +41,7 @@ public class EventoController {
     }
 
     @PutMapping("path/{id}")
-    public Evento actualizarEvento(@PathVariable int id, @RequestBody Evento evento) {
+    public Evento actualizarEvento(@PathVariable int id, @Validated @RequestBody Evento evento) {
         return eventoService.updateEvento(evento);
     }
 
