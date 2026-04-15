@@ -29,7 +29,8 @@ public class EventoService {
         return eventoRepository.buscarPorId(id);
     }
 
-    public void deleteEvento(int id) {
+    public String deleteEvento(int id) {
         eventoRepository.eliminar(id);
+        return "Evento Eliminado";
     }
 }
